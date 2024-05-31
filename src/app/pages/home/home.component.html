@@ -1,0 +1,13 @@
+<div class="w-full flex flex-col justify-center items-center py-[100px]">
+  <p class="font-['Poppins'] text-4xl">Check Our Work</p>
+  <div class="w-[80vw]">
+    <ng-image-slider
+      [images]="imageObject"
+      #nav
+      [infinite]="true"
+      [autoSlide]="true"
+      [animationSpeed]="2"
+      [imageSize]="{ width: 320, height: 350, space: 10 }"
+    ></ng-image-slider>
+  </div>
+</div>

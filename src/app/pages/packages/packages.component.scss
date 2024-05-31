@@ -1,0 +1,29 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+
+::ng-deep ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  
+::ng-deep ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+::ng-deep ::-webkit-scrollbar-thumb {
+    background-color: #8a6791;
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;
+  }
+  
+::ng-deep ::-webkit-scrollbar-thumb:hover {
+    background: #8a6791;
+  }
+  
+:host ::ng-deep html {
+    scrollbar-width: thin;
+
+    scrollbar-color: #8a6791 #f1f1f1;
+  }

@@ -1,0 +1,23 @@
+<mat-toolbar class="flex justify-center relative" color="primary">
+  <div class="flex items-center cursor-pointer" (click)="navigate('/home')">
+    <img src="../../../assets/logo.png" alt="" class="w-[30px]" />
+    <span class="font-['Poppins'] text-lg">Designs & Motifs</span>
+  </div>
+  <div class="hidden md:flex gap-5 absolute right-[20px]">
+    @for(page of pages; track page){
+    <button mat-button (click)="navigate(page.url)">{{ page.name }}</button>
+    }
+  </div>
+  <div class="flex md:hidden absolute right-[20px]">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      @for(page of pages; track page){
+      <button mat-menu-item (click)="navigate(page.url)">
+        {{ page.name }}
+      </button>
+      }
+    </mat-menu>
+  </div>
+</mat-toolbar>

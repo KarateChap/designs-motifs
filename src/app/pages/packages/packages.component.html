@@ -1,0 +1,29 @@
+<div class="w-full flex flex-col justify-center items-center py-[100px] gap-10">
+  <p class="font-['Poppins'] text-4xl">Our Packages</p>
+  <div class="flex gap-6 overflow-x-auto max-w-[90vw]">
+    @for(package of packages; track package){
+    <mat-card class="example-card">
+      <div class="flex py-3 w-full justify-center">
+        <span class="text-xl font-['Poppins']">{{ package.packageName }}</span>
+      </div>
+      <img
+        mat-card-image
+        [src]="package.packageUrl"
+        alt="Photo of a Shiba Inu"
+      />
+      <mat-card-content>
+        <div
+          class="flex w-full items-center justify-center mt-[-10px] mb-[-20px]"
+        >
+          <p class="text-3xl font-bold text-[#8a6791]">
+            {{ package.price | currency : "PHP" }}
+          </p>
+        </div>
+        <p class="font-bold">Inclusions:</p>
+        <p>{{ package.inclusions }}</p>
+      </mat-card-content>
+    </mat-card>
+
+    }
+  </div>
+</div>

@@ -1,0 +1,111 @@
+<div class="w-full flex flex-col justify-center items-center py-[100px]">
+  <p class="font-['Poppins'] text-4xl">Contact Us!</p>
+  <p class="text-xl mx-10 text-center">
+    We’d love to help you bring your creative visions to life with our unique
+    designs and motifs. Please fill in the contact form below, and we will
+    respond to you soon!
+  </p>
+
+  <mat-card class="mt-10">
+    <mat-card-content>
+      <p>Please fill up the following fields to connect with us.</p>
+      <form
+        class="flex flex-col"
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="flex gap-4 w-full">
+          <mat-form-field class="w-full">
+            <mat-label>First Name</mat-label>
+            <input
+              matInput
+              placeholder="Ex. Juan"
+              id="firstName"
+              formControlName="firstName"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label>Last Name</mat-label>
+            <input
+              matInput
+              placeholder="Ex. Dela Cruz"
+              id="lastName"
+              formControlName="lastName"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="flex gap-4 w-full">
+          <mat-form-field class="w-full">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Ex. juan.d@mail.com"
+              id="email"
+              formControlName="email"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label>Event Type</mat-label>
+            <mat-select id="eventType" formControlName="eventType">
+              @for(eventType of eventTypes; track eventType){
+              <mat-option [value]="eventType.value">{{
+                eventType.name
+              }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="flex gap-4 w-full">
+          <mat-form-field class="w-full">
+            <mat-label>Event Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              id="date"
+              formControlName="date"
+            />
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field class="w-full">
+            <mat-label>Location/Venue</mat-label>
+            <input
+              matInput
+              placeholder="Kapitan Vililia corner Pascual Deato St., Lungsod ng Valenzuela, 1445 Bulakan"
+              id="venue"
+              formControlName="venue"
+            />
+          </mat-form-field>
+        </div>
+
+        <mat-form-field class="w-full">
+          <mat-label>Message</mat-label>
+          <textarea
+            maxlength="5000"
+            matInput
+            placeholder="Ex. I will be having an event..."
+            id="message"
+            formControlName="message"
+          ></textarea>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          class="mt-5"
+          type="submit"
+          [disabled]="!contactForm.valid"
+        >
+          Submit
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
